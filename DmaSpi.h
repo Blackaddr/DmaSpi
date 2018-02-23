@@ -779,7 +779,9 @@ public:
 
 	DmaSpiGeneric() {
 		m_spiDma0 = &DMASPI0;
+#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
 		m_spiDma1 = &DMASPI1;
+#endif
 	}
 	DmaSpiGeneric(int spiId) : DmaSpiGeneric() {
 		m_spiSelect = spiId;
@@ -869,7 +871,12 @@ public:
 private:
 	int m_spiSelect = 0;
 	DmaSpi0 *m_spiDma0 = nullptr;
+#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
 	DmaSpi1 *m_spiDma1 = nullptr;
+#else
+	// just make it Spi0 so it compiles atleast
+	DmaSpi0 *m_spiDma1 = nullptr;
+#endif
 
 };
 
