@@ -99,7 +99,7 @@ class ActiveLowChipSelect : public AbstractChipSelect
 
 };
 
-#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#if defined(__MK66FX1M0__)
 class ActiveLowChipSelect1 : public AbstractChipSelect
 {
   public:

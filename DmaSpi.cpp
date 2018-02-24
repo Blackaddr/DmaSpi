@@ -2,7 +2,7 @@
 
 #if defined(KINETISK)
 DmaSpi0 DMASPI0;
-#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#if defined(__MK66FX1M0__)
 DmaSpi1 DMASPI1;
 //DmaSpi2 DMASPI2;
 #endif

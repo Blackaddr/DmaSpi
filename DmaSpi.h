@@ -575,7 +575,7 @@ private:
 
 extern DmaSpi0 DMASPI0;
 
-#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#if defined(__MK66FX1M0__)
 
 class DmaSpi1 : public AbstractDmaSpi<DmaSpi1, SPIClass, SPI1>
 {
@@ -665,7 +665,7 @@ private:
 
 extern DmaSpi1 DMASPI1;
 //extern DmaSpi2 DMASPI2;
-#endif // defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#endif // defined(__MK66FX1M0__)
 
 #elif defined(KINETISL)
 class DmaSpi0 : public AbstractDmaSpi<DmaSpi0, SPIClass, SPI>
@@ -779,7 +779,7 @@ public:
 
 	DmaSpiGeneric() {
 		m_spiDma0 = &DMASPI0;
-#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#if defined(__MK66FX1M0__)
 		m_spiDma1 = &DMASPI1;
 #endif
 	}
@@ -871,7 +871,7 @@ public:
 private:
 	int m_spiSelect = 0;
 	DmaSpi0 *m_spiDma0 = nullptr;
-#if defined(__MK64FX512__) || defined(__MK66FX1M0__)
+#if defined(__MK66FX1M0__)
 	DmaSpi1 *m_spiDma1 = nullptr;
 #else
 	// just make it Spi0 so it compiles atleast
